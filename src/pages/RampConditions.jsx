@@ -175,9 +175,10 @@ function RampDetail({ ramp, liveData, userLocation, onBack, onReport }) {
     ? driveEstimate(haversineKm(userLocation.lat, userLocation.lng, ramp.lat, ramp.lng))
     : null
 
-  const bbox = 0.012
-  const mapSrc = `https://www.openstreetmap.org/export/embed.html?bbox=${ramp.lng-bbox}%2C${ramp.lat-bbox}%2C${ramp.lng+bbox}%2C${ramp.lat+bbox}&layer=mapnik&marker=${ramp.lat}%2C${ramp.lng}`
-  const gmaps = `https://www.google.com/maps/dir/?api=1&destination=${ramp.lat},${ramp.lng}&travelmode=driving`
+  // Google Maps links
+  const gmapsNav  = `https://www.google.com/maps/dir/?api=1&destination=${ramp.lat},${ramp.lng}&travelmode=driving`
+  const gmapsView = `https://maps.google.com/maps?q=${ramp.lat},${ramp.lng}&z=15&output=embed`
+  const staticMap = `https://staticmap.openstreetmap.de/staticmap.php?center=${ramp.lat},${ramp.lng}&zoom=15&size=600x300&markers=${ramp.lat},${ramp.lng},red`
 
   return (
     <>
@@ -193,17 +194,29 @@ function RampDetail({ ramp, liveData, userLocation, onBack, onReport }) {
         </div>
       </div>
 
-      {/* Map */}
-      <div className="mx-4 rounded-2xl overflow-hidden border border-white/10" style={{height:'180px'}}>
-        <iframe title={ramp.name} width="100%" height="100%" src={mapSrc}
-          style={{border:0, filter:'invert(90%) hue-rotate(180deg)'}} />
-      </div>
+      {/* Tappable map — opens Google Maps navigation */}
+      <a href={gmapsNav} target="_blank" rel="noreferrer" className="mx-4 block rounded-2xl overflow-hidden border border-white/10 relative" style={{height:'180px'}}>
+        <img
+          src={`https://api.mapbox.com/styles/v1/mapbox/satellite-streets-v12/static/pin-l+1a56db(${ramp.lng},${ramp.lat})/${ramp.lng},${ramp.lat},14,0/600x300@2x?access_token=MAPBOX_TOKEN_REMOVED`}
+          alt={ramp.name}
+          className="w-full h-full object-cover"
+          onError={e => { e.target.style.display='none'; e.target.nextSibling.style.display='flex' }}
+        />
+        <div style={{display:'none'}} className="w-full h-full bg-white/5 items-center justify-center flex-col gap-2">
+          <MapPin size={28} className="text-crew-teal" />
+          <span className="text-xs text-gray-400">Tap to open in Maps</span>
+        </div>
+        <div className="absolute bottom-2 right-2 bg-black/60 backdrop-blur-sm rounded-xl px-3 py-1.5 flex items-center gap-1.5">
+          <Navigation size={12} className="text-crew-teal" />
+          <span className="text-xs text-white font-medium">Open in Maps</span>
+        </div>
+      </a>
 
       {/* Action buttons */}
       <div className="px-4 mt-3 flex gap-2">
-        <a href={gmaps} target="_blank" rel="noreferrer"
+        <a href={gmapsNav} target="_blank" rel="noreferrer"
           className="flex-1 flex items-center justify-center gap-2 bg-crew-blue text-white rounded-2xl py-3 text-sm font-semibold">
-          <Navigation size={16} /> Navigate
+          <Navigation size={16} /> Get Directions
         </a>
         <button onClick={onReport}
           className="flex-1 flex items-center justify-center gap-2 bg-white/10 text-white rounded-2xl py-3 text-sm font-semibold">
