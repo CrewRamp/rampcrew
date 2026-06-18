@@ -7,7 +7,7 @@ const tabs = [
   { path: '/conditions',  icon: Waves,    label: 'Boat Ramps' },
   { path: '/book',        icon: Calendar, label: 'Book' },
   { path: '/map',         icon: Map,      label: 'Map' },
-  { path: '/marketplace', icon: Users,    label: 'Helpers' },
+  { path: '/helpers', icon: Users,    label: 'Helpers' },
 ]
 
 export default function BottomNav() {
