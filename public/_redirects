@@ -1,1 +1,10 @@
-/* /index.html 200
+# Static prerendered SEO pages — serve their own index.html directly
+/launch/lake-coeur-dalene  /launch/lake-coeur-dalene/index.html  200
+/launch/hayden-lake        /launch/hayden-lake/index.html        200
+/launch/sandpoint          /launch/sandpoint/index.html          200
+/launch/priest-lake        /launch/priest-lake/index.html        200
+/launch/spirit-lake        /launch/spirit-lake/index.html        200
+/launch/twin-lakes         /launch/twin-lakes/index.html         200
+
+# All other routes — React SPA fallback
+/*  /index.html  200
