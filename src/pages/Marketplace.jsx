@@ -83,6 +83,19 @@ function BrowseHelpers({ onApply }) {
         <p className="text-xs text-gray-300">All helpers are <span className="text-white font-semibold">ID verified</span> and <span className="text-white font-semibold">background checked</span> by RampCrew.</p>
       </div>
 
+
+      {/* Safety Rules */}
+      <div className="bg-amber-500/10 border border-amber-500/30 rounded-2xl p-4 space-y-2">
+        <div className="flex items-center gap-2 text-amber-400 font-semibold text-sm">
+          <span>⚠️</span> Safety Rules
+        </div>
+        <p className="text-xs text-gray-300 leading-relaxed">
+          RampCrew helpers assist with guidance, preparation, dock support, and launch/load coordination.
+          <span className="text-white font-semibold"> Boat owners remain responsible for operating their vehicle, trailer, and vessel.</span>
+        </p>
+        <p className="text-xs text-amber-300/80">Helpers do not drive trucks, back trailers, or operate boats on behalf of customers.</p>
+      </div>
+
       {/* Filter pills */}
       <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide">
         {["All Lakes", "Lake CDA", "Pend Oreille", "Hayden Lake"].map(f => (
