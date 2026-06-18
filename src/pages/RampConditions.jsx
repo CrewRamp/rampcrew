@@ -4,12 +4,12 @@ import { Waves, AlertTriangle, CheckCircle, Clock, MapPin, RefreshCw, Navigation
 const BASE_API = 'https://superagent-9068a6ba.base44.app/functions'
 
 const RAMPS = [
-  { id: 1, name: 'Higgens Point',       lake: "Lake Coeur d'Alene", status: 'good',   wait: '5 min',  notes: 'Ramp in excellent condition. Plenty of parking.', lat: 47.5793, lng: -116.7368 },
-  { id: 2, name: 'City Park Ramp',      lake: "Lake Coeur d'Alene", status: 'busy',   wait: '35 min', notes: 'Very busy — weekend traffic. Consider Blackwell Island.', lat: 47.6735, lng: -116.7806 },
-  { id: 3, name: 'Blackwell Island',    lake: "Lake Coeur d'Alene", status: 'good',   wait: '10 min', notes: 'Good alternative to City Park. Ramp is clear.', lat: 47.6612, lng: -116.8021 },
-  { id: 4, name: 'Sandpoint City Ramp', lake: 'Lake Pend Oreille',  status: 'good',   wait: '0 min',  notes: 'Perfect conditions. No wait.', lat: 48.2766, lng: -116.5535 },
-  { id: 5, name: 'Hope Ramp',           lake: 'Lake Pend Oreille',  status: 'good',   wait: '5 min',  notes: 'Clear and calm. Easy access.', lat: 48.2393, lng: -116.3007 },
-  { id: 6, name: 'Hayden Lake Ramp',    lake: 'Hayden Lake',        status: 'closed', wait: 'N/A',    notes: 'Ramp under maintenance. Expected to reopen tomorrow.', lat: 47.7701, lng: -116.7862 },
+  { id: 1, name: 'Higgens Point',           lake: "Lake Coeur d'Alene", status: 'good',   wait: '5 min',  notes: 'Ramp in excellent condition. Plenty of parking.', lat: 47.6205, lng: -116.7455 },
+  { id: 2, name: 'City Park Ramp',          lake: "Lake Coeur d'Alene", status: 'busy',   wait: '35 min', notes: 'Very busy — weekend traffic. Consider Blackwell Island.', lat: 47.6736, lng: -116.7799 },
+  { id: 3, name: 'Blackwell Island',        lake: "Lake Coeur d'Alene", status: 'good',   wait: '10 min', notes: 'Good alternative to City Park. Ramp is clear.', lat: 47.6833, lng: -116.8052 },
+  { id: 4, name: 'Sandpoint City Ramp',     lake: 'Lake Pend Oreille',  status: 'good',   wait: '0 min',  notes: 'Perfect conditions. No wait.', lat: 48.2720, lng: -116.5418 },
+  { id: 5, name: 'Hope Boat Basin',         lake: 'Lake Pend Oreille',  status: 'good',   wait: '5 min',  notes: 'Clear and calm. Easy access.', lat: 48.2393, lng: -116.3007 },
+  { id: 6, name: 'Honeysuckle Beach Ramp',  lake: 'Hayden Lake',        status: 'closed', wait: 'N/A',    notes: 'Ramp under maintenance. Expected to reopen tomorrow.', lat: 47.7814, lng: -116.7878 },
 ]
 
 const statusConfig = {

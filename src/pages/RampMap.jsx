@@ -2,12 +2,12 @@ import React, { useState } from 'react'
 import { MapPin, Navigation, X } from 'lucide-react'
 
 const ramps = [
-  { id: 1, name: 'Higgens Point',       lake: "Lake Coeur d'Alene", status: 'good',   wait: '5 min',  lat: 47.5793, lng: -116.7368, gmaps: 'https://maps.google.com/?q=47.5793,-116.7368' },
-  { id: 2, name: 'City Park Ramp',      lake: "Lake Coeur d'Alene", status: 'busy',   wait: '35 min', lat: 47.6735, lng: -116.7806, gmaps: 'https://maps.google.com/?q=47.6735,-116.7806' },
-  { id: 3, name: 'Blackwell Island',    lake: "Lake Coeur d'Alene", status: 'good',   wait: '10 min', lat: 47.6612, lng: -116.8021, gmaps: 'https://maps.google.com/?q=47.6612,-116.8021' },
-  { id: 4, name: 'Sandpoint City Ramp', lake: 'Lake Pend Oreille',  status: 'good',   wait: '0 min',  lat: 48.2766, lng: -116.5535, gmaps: 'https://maps.google.com/?q=48.2766,-116.5535' },
-  { id: 5, name: 'Hope Ramp',           lake: 'Lake Pend Oreille',  status: 'good',   wait: '5 min',  lat: 48.2393, lng: -116.3007, gmaps: 'https://maps.google.com/?q=48.2393,-116.3007' },
-  { id: 6, name: 'Hayden Lake Ramp',    lake: 'Hayden Lake',        status: 'closed', wait: 'N/A',    lat: 47.7701, lng: -116.7862, gmaps: 'https://maps.google.com/?q=47.7701,-116.7862' },
+  { id: 1, name: 'Higgens Point',           lake: "Lake Coeur d'Alene", status: 'good',   wait: '5 min',  lat: 47.6205, lng: -116.7455, gmaps: 'https://maps.google.com/?q=47.6205,-116.7455' },
+  { id: 2, name: 'City Park Ramp',          lake: "Lake Coeur d'Alene", status: 'busy',   wait: '35 min', lat: 47.6736, lng: -116.7799, gmaps: 'https://maps.google.com/?q=47.6736,-116.7799' },
+  { id: 3, name: 'Blackwell Island',        lake: "Lake Coeur d'Alene", status: 'good',   wait: '10 min', lat: 47.6833, lng: -116.8052, gmaps: 'https://maps.google.com/?q=47.6833,-116.8052' },
+  { id: 4, name: 'Sandpoint City Ramp',     lake: 'Lake Pend Oreille',  status: 'good',   wait: '0 min',  lat: 48.2720, lng: -116.5418, gmaps: 'https://maps.google.com/?q=48.2720,-116.5418' },
+  { id: 5, name: 'Hope Boat Basin',         lake: 'Lake Pend Oreille',  status: 'good',   wait: '5 min',  lat: 48.2393, lng: -116.3007, gmaps: 'https://maps.google.com/?q=48.2393,-116.3007' },
+  { id: 6, name: 'Honeysuckle Beach Ramp',  lake: 'Hayden Lake',        status: 'closed', wait: 'N/A',    lat: 47.7814, lng: -116.7878, gmaps: 'https://maps.google.com/?q=47.7814,-116.7878' },
 ]
 
 const statusColor = { good: '#4ade80', busy: '#facc15', closed: '#f87171' }

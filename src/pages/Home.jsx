@@ -10,12 +10,12 @@ const modules = [
 ]
 
 const boatRamps = [
-  { name: 'Higgens Point',       lake: "Lake Coeur d'Alene", status: 'good',   statusLabel: 'Good',   wait: '5 min' },
-  { name: 'City Park Ramp',      lake: "Lake Coeur d'Alene", status: 'busy',   statusLabel: 'Busy',   wait: '35 min' },
-  { name: 'Blackwell Island',    lake: "Lake Coeur d'Alene", status: 'good',   statusLabel: 'Good',   wait: '10 min' },
-  { name: 'Sandpoint City Ramp', lake: 'Lake Pend Oreille',  status: 'good',   statusLabel: 'Good',   wait: '0 min' },
-  { name: 'Hope Ramp',           lake: 'Lake Pend Oreille',  status: 'good',   statusLabel: 'Good',   wait: '5 min' },
-  { name: 'Hayden Lake Ramp',    lake: 'Hayden Lake',        status: 'closed', statusLabel: 'Closed', wait: 'N/A' },
+  { name: 'Higgens Point',           lake: "Lake Coeur d'Alene", status: 'good',   statusLabel: 'Good',   wait: '5 min' },
+  { name: 'City Park Ramp',          lake: "Lake Coeur d'Alene", status: 'busy',   statusLabel: 'Busy',   wait: '35 min' },
+  { name: 'Blackwell Island',        lake: "Lake Coeur d'Alene", status: 'good',   statusLabel: 'Good',   wait: '10 min' },
+  { name: 'Sandpoint City Ramp',     lake: 'Lake Pend Oreille',  status: 'good',   statusLabel: 'Good',   wait: '0 min' },
+  { name: 'Hope Boat Basin',         lake: 'Lake Pend Oreille',  status: 'good',   statusLabel: 'Good',   wait: '5 min' },
+  { name: 'Honeysuckle Beach Ramp',  lake: 'Hayden Lake',        status: 'closed', statusLabel: 'Closed', wait: 'N/A' },
 ]
 
 const statusColor = {
