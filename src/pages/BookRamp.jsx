@@ -123,7 +123,7 @@ export default function BookRamp() {
           selectedRamp && selectedDate && selectedTime ? 'bg-crew-blue hover:bg-blue-600' : 'bg-white/10 text-gray-500 cursor-not-allowed'
         }`}
       >
-        Confirm Booking — $15
+        Confirm Booking
       </button>
     </div>
   )

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { MapPin, Navigation, X } from 'lucide-react'
 
 const ramps = [
-  { id: 1, name: 'Higgens Point',           lake: "Lake Coeur d'Alene", status: 'good',   wait: '5 min',  lat: 47.6205, lng: -116.7455, gmaps: 'https://www.google.com/maps/dir/?api=1&destination=Higgens+Point+Boat+Launch+Lake+Coeur+d%27Alene+Idaho&travelmode=driving' },
+  { id: 1, name: 'Higgens Point',           lake: "Lake Coeur d'Alene", status: 'good',   wait: '5 min',  lat: 47.6748, lng: -116.7517, gmaps: 'https://www.google.com/maps/dir/?api=1&destination=Higgens+Point+Boat+Launch+Lake+Coeur+d%27Alene+Idaho&travelmode=driving' },
   { id: 2, name: 'City Park Ramp',          lake: "Lake Coeur d'Alene", status: 'busy',   wait: '35 min', lat: 47.6736, lng: -116.7799, gmaps: 'https://www.google.com/maps/dir/?api=1&destination=City+Park+Boat+Ramp+Coeur+d%27Alene+Idaho&travelmode=driving' },
   { id: 3, name: 'Blackwell Island',        lake: "Lake Coeur d'Alene", status: 'good',   wait: '10 min', lat: 47.6833, lng: -116.8052, gmaps: 'https://www.google.com/maps/dir/?api=1&destination=Blackwell+Island+Boat+Launch+Coeur+d%27Alene+Idaho&travelmode=driving' },
   { id: 4, name: 'Sandpoint City Ramp',     lake: 'Lake Pend Oreille',  status: 'good',   wait: '0 min',  lat: 48.2720, lng: -116.5418, gmaps: 'https://www.google.com/maps/dir/?api=1&destination=Sandpoint+City+Boat+Ramp+Lake+Pend+Oreille+Idaho&travelmode=driving' },

@@ -4,7 +4,7 @@ import { Waves, AlertTriangle, CheckCircle, Clock, MapPin, RefreshCw, Navigation
 const BASE_API = 'https://superagent-9068a6ba.base44.app/functions'
 
 const RAMPS = [
-  { id: 1, name: 'Higgens Point',           lake: "Lake Coeur d'Alene", status: 'good',   wait: '5 min',  notes: 'Ramp in excellent condition. Plenty of parking.', lat: 47.6205, lng: -116.7455 },
+  { id: 1, name: 'Higgens Point',           lake: "Lake Coeur d'Alene", status: 'good',   wait: '5 min',  notes: 'Ramp in excellent condition. Plenty of parking.', lat: 47.6748, lng: -116.7517 },
   { id: 2, name: 'City Park Ramp',          lake: "Lake Coeur d'Alene", status: 'busy',   wait: '35 min', notes: 'Very busy — weekend traffic. Consider Blackwell Island.', lat: 47.6736, lng: -116.7799 },
   { id: 3, name: 'Blackwell Island',        lake: "Lake Coeur d'Alene", status: 'good',   wait: '10 min', notes: 'Good alternative to City Park. Ramp is clear.', lat: 47.6833, lng: -116.8052 },
   { id: 4, name: 'Sandpoint City Ramp',     lake: 'Lake Pend Oreille',  status: 'good',   wait: '0 min',  notes: 'Perfect conditions. No wait.', lat: 48.2720, lng: -116.5418 },
@@ -176,7 +176,7 @@ function RampDetail({ ramp, liveData, userLocation, onBack, onReport }) {
     : null
 
   // Google Maps links
-  const gmapsNav  = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(ramp.name + " boat ramp " + ramp.lake + " Idaho")}&travelmode=driving`
+  const gmapsNav  = `https://www.google.com/maps/dir/?api=1&destination=${ramp.lat},${ramp.lng}&travelmode=driving`
   const gmapsView = `https://maps.google.com/maps?q=${ramp.lat},${ramp.lng}&z=15&output=embed`
   const staticMap = `https://staticmap.openstreetmap.de/staticmap.php?center=${ramp.lat},${ramp.lng}&zoom=15&size=600x300&markers=${ramp.lat},${ramp.lng},red`
 
