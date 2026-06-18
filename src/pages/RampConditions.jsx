@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-import { Waves, Wind, Thermometer, AlertTriangle, CheckCircle, Clock, MapPin, RefreshCw } from 'lucide-react'
+import { Waves, Wind, Thermometer, AlertTriangle, CheckCircle, Clock, MapPin, RefreshCw, Navigation, X } from 'lucide-react'
 
 const rampData = [
   {
     id: 1,
     name: 'Higgens Point',
-    lake: 'Lake Coeur d\'Alene',
+    lake: "Lake Coeur d'Alene",
     status: 'good',
     wait: '5 min',
     water_temp: '68°F',
@@ -13,11 +13,13 @@ const rampData = [
     surface: 'Calm',
     notes: 'Ramp in excellent condition. Plenty of parking.',
     updated: '10 min ago',
+    lat: 47.5793, lng: -116.7368,
+    gmaps: 'https://maps.google.com/?q=47.5793,-116.7368',
   },
   {
     id: 2,
     name: 'City Park Ramp',
-    lake: 'Lake Coeur d\'Alene',
+    lake: "Lake Coeur d'Alene",
     status: 'busy',
     wait: '35 min',
     water_temp: '68°F',
@@ -25,11 +27,13 @@ const rampData = [
     surface: 'Slight chop',
     notes: 'Very busy — weekend traffic. Consider Blackwell Island instead.',
     updated: '5 min ago',
+    lat: 47.6735, lng: -116.7806,
+    gmaps: 'https://maps.google.com/?q=47.6735,-116.7806',
   },
   {
     id: 3,
     name: 'Blackwell Island',
-    lake: 'Lake Coeur d\'Alene',
+    lake: "Lake Coeur d'Alene",
     status: 'good',
     wait: '10 min',
     water_temp: '68°F',
@@ -37,6 +41,8 @@ const rampData = [
     surface: 'Calm',
     notes: 'Good alternative to City Park. Ramp is clear.',
     updated: '15 min ago',
+    lat: 47.6612, lng: -116.8021,
+    gmaps: 'https://maps.google.com/?q=47.6612,-116.8021',
   },
   {
     id: 4,
@@ -49,9 +55,25 @@ const rampData = [
     surface: 'Glass',
     notes: 'Perfect conditions. No wait.',
     updated: '8 min ago',
+    lat: 48.2766, lng: -116.5535,
+    gmaps: 'https://maps.google.com/?q=48.2766,-116.5535',
   },
   {
     id: 5,
+    name: 'Hope Ramp',
+    lake: 'Lake Pend Oreille',
+    status: 'good',
+    wait: '5 min',
+    water_temp: '62°F',
+    wind: '6 mph S',
+    surface: 'Calm',
+    notes: 'Clear and calm. Easy access.',
+    updated: '12 min ago',
+    lat: 48.2393, lng: -116.3007,
+    gmaps: 'https://maps.google.com/?q=48.2393,-116.3007',
+  },
+  {
+    id: 6,
     name: 'Hayden Lake Ramp',
     lake: 'Hayden Lake',
     status: 'closed',
@@ -61,17 +83,109 @@ const rampData = [
     surface: 'N/A',
     notes: 'Ramp under maintenance. Expected to reopen tomorrow.',
     updated: '2 hrs ago',
+    lat: 47.7701, lng: -116.7862,
+    gmaps: 'https://maps.google.com/?q=47.7701,-116.7862',
   },
 ]
 
 const statusConfig = {
-  good: { color: 'text-green-400', bg: 'bg-green-400/10', icon: CheckCircle, label: 'Good' },
-  busy: { color: 'text-yellow-400', bg: 'bg-yellow-400/10', icon: Clock, label: 'Busy' },
-  closed: { color: 'text-red-400', bg: 'bg-red-400/10', icon: AlertTriangle, label: 'Closed' },
+  good:   { color: 'text-green-400',  bg: 'bg-green-400/10',  icon: CheckCircle,    label: 'Good' },
+  busy:   { color: 'text-yellow-400', bg: 'bg-yellow-400/10', icon: Clock,          label: 'Busy' },
+  closed: { color: 'text-red-400',    bg: 'bg-red-400/10',    icon: AlertTriangle,  label: 'Closed' },
+}
+
+function RampDetail({ ramp, onBack }) {
+  const cfg = statusConfig[ramp.status]
+  const StatusIcon = cfg.icon
+  const zoom = 15
+  const bbox = 0.012
+  const mapSrc = `https://www.openstreetmap.org/export/embed.html?bbox=${ramp.lng - bbox}%2C${ramp.lat - bbox}%2C${ramp.lng + bbox}%2C${ramp.lat + bbox}&layer=mapnik&marker=${ramp.lat}%2C${ramp.lng}`
+
+  return (
+    <div className="flex flex-col">
+      {/* Header */}
+      <div className="flex items-center gap-3 px-4 py-4">
+        <button onClick={onBack} className="p-2 bg-white/5 rounded-xl">
+          <X size={16} className="text-gray-400" />
+        </button>
+        <div className="flex-1">
+          <div className="font-bold text-white">{ramp.name}</div>
+          <div className="flex items-center gap-1 text-xs text-gray-500 mt-0.5">
+            <MapPin size={10} /> {ramp.lake}
+          </div>
+        </div>
+        <div className={`flex items-center gap-1 ${cfg.bg} ${cfg.color} text-xs font-medium px-2.5 py-1 rounded-full`}>
+          <StatusIcon size={12} /> {cfg.label}
+        </div>
+      </div>
+
+      {/* Map */}
+      <div className="mx-4 rounded-2xl overflow-hidden border border-white/10" style={{ height: '220px' }}>
+        <iframe
+          title={ramp.name}
+          width="100%"
+          height="100%"
+          src={mapSrc}
+          style={{ border: 0, filter: 'invert(90%) hue-rotate(180deg)' }}
+        />
+      </div>
+
+      {/* Navigate button */}
+      <div className="px-4 mt-3">
+        <a
+          href={ramp.gmaps}
+          target="_blank"
+          rel="noreferrer"
+          className="flex items-center justify-center gap-2 bg-crew-blue text-white rounded-2xl py-3 text-sm font-semibold w-full"
+        >
+          <Navigation size={16} /> Navigate to Ramp
+        </a>
+      </div>
+
+      {/* Conditions */}
+      {ramp.status !== 'closed' && (
+        <div className="px-4 mt-4 grid grid-cols-3 gap-2">
+          <div className="bg-white/5 rounded-xl p-3 text-center">
+            <div className="text-xs text-gray-500">Wait</div>
+            <div className="text-sm font-bold text-white mt-0.5">{ramp.wait}</div>
+          </div>
+          <div className="bg-white/5 rounded-xl p-3 text-center">
+            <div className="text-xs text-gray-500">Water</div>
+            <div className="text-sm font-bold text-white mt-0.5">{ramp.water_temp}</div>
+          </div>
+          <div className="bg-white/5 rounded-xl p-3 text-center">
+            <div className="text-xs text-gray-500">Wind</div>
+            <div className="text-sm font-bold text-white mt-0.5">{ramp.wind}</div>
+          </div>
+        </div>
+      )}
+
+      {/* Surface & notes */}
+      <div className="px-4 mt-3 space-y-2">
+        {ramp.status !== 'closed' && (
+          <div className="bg-white/5 rounded-xl px-4 py-3 flex items-center justify-between">
+            <span className="text-xs text-gray-500">Surface</span>
+            <span className="text-xs text-white font-medium">{ramp.surface}</span>
+          </div>
+        )}
+        <div className="bg-white/5 rounded-xl px-4 py-3">
+          <p className="text-xs text-gray-400">{ramp.notes}</p>
+        </div>
+        <div className="text-xs text-gray-600 px-1">Updated {ramp.updated}</div>
+      </div>
+    </div>
+  )
 }
 
 export default function RampConditions() {
   const [filter, setFilter] = useState('all')
+  const [selected, setSelected] = useState(null)
+
+  const selectedRamp = rampData.find(r => r.id === selected)
+
+  if (selectedRamp) {
+    return <RampDetail ramp={selectedRamp} onBack={() => setSelected(null)} />
+  }
 
   const filtered = filter === 'all' ? rampData : rampData.filter(r => r.status === filter)
 
@@ -79,15 +193,14 @@ export default function RampConditions() {
     <div className="px-4 py-6 space-y-5">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-xl font-bold text-white">Ramp Conditions</h1>
-          <p className="text-gray-400 text-xs mt-0.5">Live updates · refreshed every 10 min</p>
+          <h1 className="text-xl font-bold text-white">Boat Ramps</h1>
+          <p className="text-gray-400 text-xs mt-0.5">Tap a ramp for map & conditions</p>
         </div>
         <button className="p-2 bg-white/5 rounded-xl">
           <RefreshCw size={16} className="text-gray-400" />
         </button>
       </div>
 
-      {/* Filter Tabs */}
       <div className="flex gap-2">
         {['all', 'good', 'busy', 'closed'].map((f) => (
           <button
@@ -102,24 +215,25 @@ export default function RampConditions() {
         ))}
       </div>
 
-      {/* Ramp Cards */}
       <div className="space-y-3">
         {filtered.map((ramp) => {
           const cfg = statusConfig[ramp.status]
           const StatusIcon = cfg.icon
           return (
-            <div key={ramp.id} className="bg-white/5 rounded-2xl p-4 space-y-3">
+            <button
+              key={ramp.id}
+              onClick={() => setSelected(ramp.id)}
+              className="w-full text-left bg-white/5 rounded-2xl p-4 space-y-3 active:scale-[0.98] transition-transform"
+            >
               <div className="flex items-start justify-between">
                 <div>
                   <div className="font-semibold text-white text-sm">{ramp.name}</div>
                   <div className="flex items-center gap-1 text-xs text-gray-500 mt-0.5">
-                    <MapPin size={10} />
-                    {ramp.lake}
+                    <MapPin size={10} /> {ramp.lake}
                   </div>
                 </div>
                 <div className={`flex items-center gap-1 ${cfg.bg} ${cfg.color} text-xs font-medium px-2 py-1 rounded-full`}>
-                  <StatusIcon size={12} />
-                  {cfg.label}
+                  <StatusIcon size={12} /> {cfg.label}
                 </div>
               </div>
 
@@ -140,9 +254,13 @@ export default function RampConditions() {
                 </div>
               )}
 
-              <p className="text-xs text-gray-400">{ramp.notes}</p>
-              <div className="text-xs text-gray-600">Updated {ramp.updated}</div>
-            </div>
+              <div className="flex items-center justify-between">
+                <p className="text-xs text-gray-400 flex-1 pr-2">{ramp.notes}</p>
+                <div className="flex items-center gap-1 text-xs text-crew-teal shrink-0">
+                  <MapPin size={10} /> Map
+                </div>
+              </div>
+            </button>
           )
         })}
       </div>

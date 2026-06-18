@@ -1,13 +1,13 @@
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { Home, Calendar, Waves, Users, LifeBuoy } from 'lucide-react'
+import { Home, Waves, Calendar, Map, Users } from 'lucide-react'
 
 const tabs = [
-  { path: '/', icon: Home, label: 'Home' },
-  { path: '/concierge', icon: LifeBuoy, label: 'Concierge' },
-  { path: '/book', icon: Calendar, label: 'Book Ramp' },
-  { path: '/conditions', icon: Waves, label: 'Conditions' },
-  { path: '/marketplace', icon: Users, label: 'Helpers' },
+  { path: '/',            icon: Home,     label: 'Home' },
+  { path: '/conditions',  icon: Waves,    label: 'Boat Ramps' },
+  { path: '/book',        icon: Calendar, label: 'Book' },
+  { path: '/map',         icon: Map,      label: 'Map' },
+  { path: '/marketplace', icon: Users,    label: 'Helpers' },
 ]
 
 export default function BottomNav() {

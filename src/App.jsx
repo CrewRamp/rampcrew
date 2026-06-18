@@ -7,6 +7,7 @@ import Concierge from './pages/Concierge'
 import BookRamp from './pages/BookRamp'
 import RampConditions from './pages/RampConditions'
 import Marketplace from './pages/Marketplace'
+import RampMap from './pages/RampMap'
 import AdminDashboard from './pages/AdminDashboard'
 
 export default function App() {
@@ -22,6 +23,7 @@ export default function App() {
           <Route path="/book" element={<BookRamp />} />
           <Route path="/conditions" element={<RampConditions />} />
           <Route path="/marketplace" element={<Marketplace />} />
+          <Route path="/map" element={<RampMap />} />
           <Route path="/admin" element={<AdminDashboard />} />
         </Routes>
       </main>
