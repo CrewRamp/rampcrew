@@ -197,7 +197,7 @@ function RampDetail({ ramp, liveData, userLocation, onBack, onReport }) {
       {/* Tappable map — opens Google Maps navigation */}
       <a href={gmapsNav} target="_blank" rel="noreferrer" className="mx-4 block rounded-2xl overflow-hidden border border-white/10 relative" style={{height:'180px'}}>
         <img
-          src={`https://api.mapbox.com/styles/v1/mapbox/satellite-streets-v12/static/pin-l+1a56db(${ramp.lng},${ramp.lat})/${ramp.lng},${ramp.lat},14,0/600x300@2x?access_token=MAPBOX_TOKEN_REMOVED`}
+          src={`https://staticmap.openstreetmap.de/staticmap.php?center=${ramp.lat},${ramp.lng}&zoom=15&size=600x300&markers=${ramp.lat},${ramp.lng},red`}
           alt={ramp.name}
           className="w-full h-full object-cover"
           onError={e => { e.target.style.display='none'; e.target.nextSibling.style.display='flex' }}
