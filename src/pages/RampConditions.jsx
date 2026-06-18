@@ -176,7 +176,7 @@ function RampDetail({ ramp, liveData, userLocation, onBack, onReport }) {
     : null
 
   // Google Maps links
-  const gmapsNav  = `https://www.google.com/maps/dir/?api=1&destination=${ramp.lat},${ramp.lng}&travelmode=driving`
+  const gmapsNav  = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(ramp.name + " boat ramp " + ramp.lake + " Idaho")}&travelmode=driving`
   const gmapsView = `https://maps.google.com/maps?q=${ramp.lat},${ramp.lng}&z=15&output=embed`
   const staticMap = `https://staticmap.openstreetmap.de/staticmap.php?center=${ramp.lat},${ramp.lng}&zoom=15&size=600x300&markers=${ramp.lat},${ramp.lng},red`
 

@@ -2,12 +2,12 @@ import React, { useState } from 'react'
 import { MapPin, Navigation, X } from 'lucide-react'
 
 const ramps = [
-  { id: 1, name: 'Higgens Point',           lake: "Lake Coeur d'Alene", status: 'good',   wait: '5 min',  lat: 47.6205, lng: -116.7455, gmaps: 'https://maps.google.com/?q=47.6205,-116.7455' },
-  { id: 2, name: 'City Park Ramp',          lake: "Lake Coeur d'Alene", status: 'busy',   wait: '35 min', lat: 47.6736, lng: -116.7799, gmaps: 'https://maps.google.com/?q=47.6736,-116.7799' },
-  { id: 3, name: 'Blackwell Island',        lake: "Lake Coeur d'Alene", status: 'good',   wait: '10 min', lat: 47.6833, lng: -116.8052, gmaps: 'https://maps.google.com/?q=47.6833,-116.8052' },
-  { id: 4, name: 'Sandpoint City Ramp',     lake: 'Lake Pend Oreille',  status: 'good',   wait: '0 min',  lat: 48.2720, lng: -116.5418, gmaps: 'https://maps.google.com/?q=48.2720,-116.5418' },
-  { id: 5, name: 'Hope Boat Basin',         lake: 'Lake Pend Oreille',  status: 'good',   wait: '5 min',  lat: 48.2393, lng: -116.3007, gmaps: 'https://maps.google.com/?q=48.2393,-116.3007' },
-  { id: 6, name: 'Honeysuckle Beach Ramp',  lake: 'Hayden Lake',        status: 'closed', wait: 'N/A',    lat: 47.7814, lng: -116.7878, gmaps: 'https://maps.google.com/?q=47.7814,-116.7878' },
+  { id: 1, name: 'Higgens Point',           lake: "Lake Coeur d'Alene", status: 'good',   wait: '5 min',  lat: 47.6205, lng: -116.7455, gmaps: 'https://www.google.com/maps/dir/?api=1&destination=Higgens+Point+Boat+Launch+Lake+Coeur+d%27Alene+Idaho&travelmode=driving' },
+  { id: 2, name: 'City Park Ramp',          lake: "Lake Coeur d'Alene", status: 'busy',   wait: '35 min', lat: 47.6736, lng: -116.7799, gmaps: 'https://www.google.com/maps/dir/?api=1&destination=City+Park+Boat+Ramp+Coeur+d%27Alene+Idaho&travelmode=driving' },
+  { id: 3, name: 'Blackwell Island',        lake: "Lake Coeur d'Alene", status: 'good',   wait: '10 min', lat: 47.6833, lng: -116.8052, gmaps: 'https://www.google.com/maps/dir/?api=1&destination=Blackwell+Island+Boat+Launch+Coeur+d%27Alene+Idaho&travelmode=driving' },
+  { id: 4, name: 'Sandpoint City Ramp',     lake: 'Lake Pend Oreille',  status: 'good',   wait: '0 min',  lat: 48.2720, lng: -116.5418, gmaps: 'https://www.google.com/maps/dir/?api=1&destination=Sandpoint+City+Boat+Ramp+Lake+Pend+Oreille+Idaho&travelmode=driving' },
+  { id: 5, name: 'Hope Boat Basin',         lake: 'Lake Pend Oreille',  status: 'good',   wait: '5 min',  lat: 48.2393, lng: -116.3007, gmaps: 'https://www.google.com/maps/dir/?api=1&destination=Hope+Boat+Basin+Lake+Pend+Oreille+Idaho&travelmode=driving' },
+  { id: 6, name: 'Honeysuckle Beach Ramp',  lake: 'Hayden Lake',        status: 'closed', wait: 'N/A',    lat: 47.7814, lng: -116.7878, gmaps: 'https://www.google.com/maps/dir/?api=1&destination=Honeysuckle+Beach+Boat+Ramp+Hayden+Lake+Idaho&travelmode=driving' },
 ]
 
 const statusColor = { good: '#4ade80', busy: '#facc15', closed: '#f87171' }
