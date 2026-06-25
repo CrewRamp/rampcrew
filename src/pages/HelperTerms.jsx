@@ -66,7 +66,7 @@ export default function HelperTerms() {
         },
         {
           title: '12. Contact',
-          body: `For questions about these terms, contact us at hello@rampcrew.com or call (208) 555-0100.`,
+          body: `For questions about these terms, contact us at hello@rampcrew.com.`,
         },
       ].map(({ title, body }) => (
         <div key={title} className="space-y-1.5">

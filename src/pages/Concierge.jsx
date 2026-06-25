@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { LifeBuoy, Clock, CheckCircle, Phone } from 'lucide-react'
+import { LifeBuoy, Clock, CheckCircle } from 'lucide-react'
 import WaiverModal from '../components/WaiverModal'
 
 const services = [
@@ -98,11 +98,6 @@ export default function Concierge() {
         >
           {selected ? 'Book Concierge Now' : 'Select a Service'}
         </button>
-
-        <div className="flex items-center justify-center gap-2 text-navy-700/70 text-sm">
-          <Phone size={14} />
-          <span>Or call us: <a href="tel:+12085550100" className="text-crew-blue">(208) 555-0100</a></span>
-        </div>
 
         {/* Safety Rules */}
         <div className="bg-amber-500/10 border border-amber-500/30 rounded-2xl p-4 space-y-2">
