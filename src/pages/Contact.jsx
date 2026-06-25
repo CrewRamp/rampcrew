@@ -83,7 +83,7 @@ export default function Contact() {
         <button
           type="submit"
           disabled={loading || !form.name || !form.email || !form.message}
-          className="w-full bg-navy-900 text-white rounded-xl py-3.5 text-sm font-semibold flex items-center justify-center gap-2 disabled:opacity-40"
+          className="w-full bg-[#f0f4f8] text-navy-800 rounded-xl py-3.5 text-sm font-semibold flex items-center justify-center gap-2 disabled:opacity-40"
         >
           <Send size={16} />
           {loading ? 'Sending…' : 'Send Message'}

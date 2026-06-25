@@ -19,23 +19,23 @@ function FileUploadBox({ label, hint, icon: Icon, value, onChange, accept }) {
   const ref = useRef()
   return (
     <div>
-      <div className="text-xs text-gray-400 mb-1.5">{label}</div>
+      <div className="text-xs text-navy-700 mb-1.5">{label}</div>
       <div
         onClick={() => ref.current.click()}
-        className={`w-full border-2 border-dashed rounded-xl p-4 flex flex-col items-center gap-2 cursor-pointer transition-all ${value ? 'border-crew-teal/60 bg-crew-teal/5' : 'border-white/10 hover:border-white/20'}`}
+        className={`w-full border-2 border-dashed rounded-xl p-4 flex flex-col items-center gap-2 cursor-pointer transition-all ${value ? 'border-crew-blue/60 bg-crew-blue/5' : 'border-navy-800/15 hover:border-white/20'}`}
       >
         <input ref={ref} type="file" accept={accept} className="hidden" onChange={e => onChange(e.target.files[0])} />
         {value ? (
           <>
-            <CheckCircle size={22} className="text-crew-teal" />
-            <span className="text-xs text-crew-teal font-medium">{value.name}</span>
-            <span className="text-xs text-gray-500">Tap to replace</span>
+            <CheckCircle size={22} className="text-crew-blue" />
+            <span className="text-xs text-crew-blue font-medium">{value.name}</span>
+            <span className="text-xs text-navy-700/70">Tap to replace</span>
           </>
         ) : (
           <>
-            <Icon size={22} className="text-gray-500" />
-            <span className="text-xs text-white font-medium">{hint}</span>
-            <span className="text-xs text-gray-500">Tap to upload</span>
+            <Icon size={22} className="text-navy-700/70" />
+            <span className="text-xs text-navy-800 font-medium">{hint}</span>
+            <span className="text-xs text-navy-700/70">Tap to upload</span>
           </>
         )}
       </div>
@@ -46,7 +46,7 @@ function FileUploadBox({ label, hint, icon: Icon, value, onChange, accept }) {
 function Section({ title, children }) {
   return (
     <div className="space-y-3">
-      <div className="text-xs font-semibold text-crew-teal uppercase tracking-wider border-b border-white/5 pb-1">{title}</div>
+      <div className="text-xs font-semibold text-crew-blue uppercase tracking-wider border-b border-navy-800/10 pb-1">{title}</div>
       {children}
     </div>
   )
@@ -55,7 +55,7 @@ function Section({ title, children }) {
 function Field({ label, required, children }) {
   return (
     <div>
-      <div className="text-xs text-gray-400 mb-1.5">{label}{required && <span className="text-red-400 ml-0.5">*</span>}</div>
+      <div className="text-xs text-navy-700 mb-1.5">{label}{required && <span className="text-red-400 ml-0.5">*</span>}</div>
       {children}
     </div>
   )
@@ -68,7 +68,7 @@ function TextInput({ value, onChange, placeholder, type = 'text' }) {
       value={value}
       onChange={onChange}
       placeholder={placeholder}
-      className="w-full bg-white/5 border border-white/10 rounded-xl text-sm text-white placeholder-gray-600 px-4 py-3 focus:outline-none focus:border-crew-teal/40"
+      className="w-full bg-white border border-navy-800/10 shadow-sm border border-navy-800/15 rounded-xl text-sm text-navy-800 placeholder-gray-600 px-4 py-3 focus:outline-none focus:border-crew-blue/40"
     />
   )
 }
@@ -80,7 +80,7 @@ function BrowseHelpers({ onApply }) {
       {/* Trust badge */}
       <div className="bg-green-500/10 border border-green-500/30 rounded-2xl p-3 flex items-center gap-3">
         <Shield size={18} className="text-green-400 shrink-0" />
-        <p className="text-xs text-gray-300">All helpers are <span className="text-white font-semibold">ID verified</span> and <span className="text-white font-semibold">background checked</span> by RampCrew.</p>
+        <p className="text-xs text-navy-700">All helpers are <span className="text-navy-800 font-semibold">ID verified</span> and <span className="text-navy-800 font-semibold">background checked</span> by RampCrew.</p>
       </div>
 
 
@@ -89,9 +89,9 @@ function BrowseHelpers({ onApply }) {
         <div className="flex items-center gap-2 text-amber-400 font-semibold text-sm">
           <span>⚠️</span> Safety Rules
         </div>
-        <p className="text-xs text-gray-300 leading-relaxed">
+        <p className="text-xs text-navy-700 leading-relaxed">
           RampCrew helpers assist with guidance, preparation, dock support, and launch/load coordination.
-          <span className="text-white font-semibold"> Boat owners remain responsible for operating their vehicle, trailer, and vessel.</span>
+          <span className="text-navy-800 font-semibold"> Boat owners remain responsible for operating their vehicle, trailer, and vessel.</span>
         </p>
         <p className="text-xs text-amber-300/80">Helpers do not drive trucks, back trailers, or operate boats on behalf of customers.</p>
       </div>
@@ -99,7 +99,7 @@ function BrowseHelpers({ onApply }) {
       {/* Filter pills */}
       <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide">
         {["All Lakes", "Lake CDA", "Pend Oreille", "Hayden Lake"].map(f => (
-          <button key={f} className="flex-shrink-0 px-3 py-1.5 rounded-full text-xs border border-white/10 text-gray-400 bg-white/5">
+          <button key={f} className="flex-shrink-0 px-3 py-1.5 rounded-full text-xs border border-navy-800/15 text-navy-700 bg-white border border-navy-800/10 shadow-sm">
             {f}
           </button>
         ))}
@@ -107,29 +107,29 @@ function BrowseHelpers({ onApply }) {
 
       {/* Empty state */}
       <div className="flex flex-col items-center text-center py-10 space-y-4">
-        <div className="w-16 h-16 bg-white/5 rounded-full flex items-center justify-center">
-          <Users size={28} className="text-gray-500" />
+        <div className="w-16 h-16 bg-white border border-navy-800/10 shadow-sm rounded-full flex items-center justify-center">
+          <Users size={28} className="text-navy-700/70" />
         </div>
         <div>
-          <div className="text-white font-semibold">No helpers listed yet</div>
-          <div className="text-gray-500 text-xs mt-1 max-w-xs">
+          <div className="text-navy-800 font-semibold">No helpers listed yet</div>
+          <div className="text-navy-700/70 text-xs mt-1 max-w-xs">
             We're verifying our first batch of helpers for North Idaho. Check back soon — or be the first to apply.
           </div>
         </div>
-        <div className="flex items-center gap-2 text-xs text-gray-600">
+        <div className="flex items-center gap-2 text-xs text-navy-700/60">
           <Clock size={12} />
           <span>Helpers typically go live within 24–48 hrs of applying</span>
         </div>
       </div>
 
       {/* Become a helper CTA */}
-      <div className="bg-gradient-to-br from-blue-900/60 to-teal-900/40 border border-crew-teal/20 rounded-2xl p-5 space-y-3">
-        <div className="font-bold text-white">Are you a local boater?</div>
-        <p className="text-xs text-gray-400">Earn money helping others launch. Set your own hours and rate.</p>
-        <div className="grid grid-cols-3 gap-2 text-center text-xs text-gray-400">
-          <div className="bg-white/5 rounded-xl p-2"><div className="text-white font-semibold">You set</div>your rate</div>
-          <div className="bg-white/5 rounded-xl p-2"><div className="text-white font-semibold">Flexible</div>schedule</div>
-          <div className="bg-white/5 rounded-xl p-2"><div className="text-white font-semibold">Fast</div>payouts</div>
+      <div className="bg-gradient-to-br from-blue-900/60 to-teal-900/40 border border-crew-blue/20 rounded-2xl p-5 space-y-3">
+        <div className="font-bold text-navy-800">Are you a local boater?</div>
+        <p className="text-xs text-navy-700">Earn money helping others launch. Set your own hours and rate.</p>
+        <div className="grid grid-cols-3 gap-2 text-center text-xs text-navy-700">
+          <div className="bg-white border border-navy-800/10 shadow-sm rounded-xl p-2"><div className="text-navy-800 font-semibold">You set</div>your rate</div>
+          <div className="bg-white border border-navy-800/10 shadow-sm rounded-xl p-2"><div className="text-navy-800 font-semibold">Flexible</div>schedule</div>
+          <div className="bg-white border border-navy-800/10 shadow-sm rounded-xl p-2"><div className="text-navy-800 font-semibold">Fast</div>payouts</div>
         </div>
         <button
           onClick={onApply}
@@ -218,8 +218,8 @@ function ApplyForm() {
         <div className="w-20 h-20 bg-green-500/20 rounded-full flex items-center justify-center">
           <CheckCircle size={40} className="text-green-400" />
         </div>
-        <h2 className="text-xl font-bold text-white">Application Submitted!</h2>
-        <p className="text-gray-400 text-sm max-w-xs">
+        <h2 className="text-xl font-bold text-navy-800">Application Submitted!</h2>
+        <p className="text-navy-700 text-sm max-w-xs">
           We'll review your info and reach out within 24–48 hours. Welcome to the crew!
         </p>
       </div>
@@ -229,8 +229,8 @@ function ApplyForm() {
   return (
     <div className="space-y-6 pb-10">
       {/* Verification info */}
-      <div className="bg-blue-500/10 border border-blue-500/20 rounded-2xl p-4 text-xs text-gray-300 space-y-1">
-        <div className="flex items-center gap-2 text-blue-300 font-semibold mb-1">
+      <div className="bg-blue-500/10 border border-blue-500/20 rounded-2xl p-4 text-xs text-navy-700 space-y-1">
+        <div className="flex items-center gap-2 text-crew-blue font-semibold mb-1">
           <Shield size={13} /> What we verify
         </div>
         <div className="flex items-center gap-2"><CheckCircle size={11} className="text-green-400" /> Government-issued ID</div>
@@ -286,7 +286,7 @@ function ApplyForm() {
           <div className="grid grid-cols-3 gap-2">
             {LAKES.map(loc => (
               <button key={loc} onClick={() => setForm(f => ({ ...f, location: loc }))}
-                className={`py-2.5 rounded-xl text-xs font-medium border transition-all text-center ${form.location === loc ? 'border-crew-teal bg-crew-teal/10 text-crew-teal' : 'border-white/10 text-gray-400'}`}>
+                className={`py-2.5 rounded-xl text-xs font-medium border transition-all text-center ${form.location === loc ? 'border-crew-blue bg-crew-blue/10 text-crew-blue' : 'border-navy-800/15 text-navy-700'}`}>
                 {loc.replace('Lake ', '').replace("Coeur d'Alene", 'CDA')}
               </button>
             ))}
@@ -300,7 +300,7 @@ function ApplyForm() {
           <div className="grid grid-cols-2 gap-2">
             {SKILLS.map(skill => (
               <button key={skill} onClick={() => toggleSkill(skill)}
-                className={`py-2 rounded-xl text-xs font-medium border transition-all ${selectedSkills.includes(skill) ? 'border-crew-teal bg-crew-teal/10 text-crew-teal' : 'border-white/10 text-gray-400'}`}>
+                className={`py-2 rounded-xl text-xs font-medium border transition-all ${selectedSkills.includes(skill) ? 'border-crew-blue bg-crew-blue/10 text-crew-blue' : 'border-navy-800/15 text-navy-700'}`}>
                 {skill}
               </button>
             ))}
@@ -310,7 +310,7 @@ function ApplyForm() {
           <div className="grid grid-cols-4 gap-2">
             {['1–2 yrs', '3–5 yrs', '6–10 yrs', '10+ yrs'].map(exp => (
               <button key={exp} onClick={() => setForm(f => ({ ...f, experience: exp }))}
-                className={`py-2 rounded-xl text-xs font-medium border transition-all ${form.experience === exp ? 'border-crew-teal bg-crew-teal/10 text-crew-teal' : 'border-white/10 text-gray-400'}`}>
+                className={`py-2 rounded-xl text-xs font-medium border transition-all ${form.experience === exp ? 'border-crew-blue bg-crew-blue/10 text-crew-blue' : 'border-navy-800/15 text-navy-700'}`}>
                 {exp}
               </button>
             ))}
@@ -320,7 +320,7 @@ function ApplyForm() {
           <div className="grid grid-cols-4 gap-2">
             {RATES.map(r => (
               <button key={r} onClick={() => setForm(f => ({ ...f, rate: r }))}
-                className={`py-2 rounded-xl text-xs font-medium border transition-all ${form.rate === r ? 'border-crew-teal bg-crew-teal/10 text-crew-teal' : 'border-white/10 text-gray-400'}`}>
+                className={`py-2 rounded-xl text-xs font-medium border transition-all ${form.rate === r ? 'border-crew-blue bg-crew-blue/10 text-crew-blue' : 'border-navy-800/15 text-navy-700'}`}>
                 {r}/hr
               </button>
             ))}
@@ -334,7 +334,7 @@ function ApplyForm() {
           <div className="grid grid-cols-7 gap-1.5">
             {DAYS.map(day => (
               <button key={day} onClick={() => toggleDay(day)}
-                className={`py-2 rounded-xl text-xs font-medium border transition-all ${selectedDays.includes(day) ? 'border-crew-teal bg-crew-teal/10 text-crew-teal' : 'border-white/10 text-gray-400'}`}>
+                className={`py-2 rounded-xl text-xs font-medium border transition-all ${selectedDays.includes(day) ? 'border-crew-blue bg-crew-blue/10 text-crew-blue' : 'border-navy-800/15 text-navy-700'}`}>
                 {day}
               </button>
             ))}
@@ -369,20 +369,20 @@ function ApplyForm() {
         <Field label="Brief Bio (optional)">
           <textarea value={form.bio} onChange={set('bio')}
             placeholder="Tell boaters about your experience, certifications, time on the water..."
-            className="w-full bg-white/5 border border-white/10 rounded-xl text-xs text-white placeholder-gray-600 p-3 resize-none h-24 focus:outline-none focus:border-crew-teal/40" />
+            className="w-full bg-white border border-navy-800/10 shadow-sm border border-navy-800/15 rounded-xl text-xs text-navy-800 placeholder-gray-600 p-3 resize-none h-24 focus:outline-none focus:border-crew-blue/40" />
         </Field>
       </Section>
 
       {/* Agreement */}
-      <div className="bg-white/3 border border-white/10 rounded-xl p-4 space-y-3">
-        <div className="text-xs text-gray-400 leading-relaxed">
-          By submitting you agree to RampCrew's <Link to="/helper-terms" className="text-crew-teal underline">Helper Terms of Service</Link>, consent to a background check, and confirm all information is accurate.
+      <div className="bg-white/3 border border-navy-800/15 rounded-xl p-4 space-y-3">
+        <div className="text-xs text-navy-700 leading-relaxed">
+          By submitting you agree to RampCrew's <Link to="/helper-terms" className="text-crew-blue underline">Helper Terms of Service</Link>, consent to a background check, and confirm all information is accurate.
         </div>
         <button onClick={() => setAgreed(a => !a)} className="flex items-center gap-3 w-full">
-          <div className={`w-5 h-5 rounded border-2 flex items-center justify-center transition-all shrink-0 ${agreed ? 'border-crew-teal bg-crew-teal' : 'border-white/20'}`}>
-            {agreed && <CheckCircle size={12} className="text-white" />}
+          <div className={`w-5 h-5 rounded border-2 flex items-center justify-center transition-all shrink-0 ${agreed ? 'border-crew-blue bg-crew-blue' : 'border-white/20'}`}>
+            {agreed && <CheckCircle size={12} className="text-navy-800" />}
           </div>
-          <span className="text-xs text-gray-300 text-left">I agree to the terms and confirm all information is accurate</span>
+          <span className="text-xs text-navy-700 text-left">I agree to the terms and confirm all information is accurate</span>
         </button>
       </div>
 
@@ -417,21 +417,21 @@ export default function Marketplace() {
     <div className="px-4 py-6">
       {/* Header */}
       <div className="mb-4">
-        <h1 className="text-xl font-bold text-white">Helper Marketplace</h1>
-        <p className="text-gray-400 text-sm mt-0.5">Find or become a verified launch helper</p>
+        <h1 className="text-xl font-bold text-navy-800">Helper Marketplace</h1>
+        <p className="text-navy-700 text-sm mt-0.5">Find or become a verified launch helper</p>
       </div>
 
       {/* Tab switcher */}
-      <div className="flex bg-white/5 rounded-2xl p-1 mb-5">
+      <div className="flex bg-white border border-navy-800/10 shadow-sm rounded-2xl p-1 mb-5">
         <button
           onClick={() => setTab('browse')}
-          className={`flex-1 py-2.5 rounded-xl text-sm font-semibold transition-all ${tab === 'browse' ? 'bg-crew-blue text-white shadow' : 'text-gray-400'}`}
+          className={`flex-1 py-2.5 rounded-xl text-sm font-semibold transition-all ${tab === 'browse' ? 'bg-crew-blue text-white shadow' : 'text-navy-700'}`}
         >
           Find a Helper
         </button>
         <button
           onClick={() => setTab('apply')}
-          className={`flex-1 py-2.5 rounded-xl text-sm font-semibold transition-all ${tab === 'apply' ? 'bg-crew-blue text-white shadow' : 'text-gray-400'}`}
+          className={`flex-1 py-2.5 rounded-xl text-sm font-semibold transition-all ${tab === 'apply' ? 'bg-crew-blue text-white shadow' : 'text-navy-700'}`}
         >
           Become a Helper
         </button>

@@ -16,7 +16,7 @@ const statusConfig = {
   good:   { color: 'text-green-400',  bg: 'bg-green-400/10',  icon: CheckCircle,   label: 'Good' },
   busy:   { color: 'text-yellow-400', bg: 'bg-yellow-400/10', icon: Clock,         label: 'Busy' },
   closed:  { color: 'text-red-400',    bg: 'bg-red-400/10',    icon: AlertTriangle, label: 'Closed' },
-  unknown: { color: 'text-gray-400',   bg: 'bg-white/5',        icon: Clock,         label: 'No Data' },
+  unknown: { color: 'text-navy-700',   bg: 'bg-white border border-navy-800/10 shadow-sm',        icon: Clock,         label: 'No Data' },
 }
 
 function timeAgo(iso) {
@@ -90,36 +90,36 @@ function ReportSheet({ ramp, onClose, onSubmitted }) {
 
   return (
     <div className="fixed inset-0 z-50 flex items-end justify-center bg-black/60 max-w-md mx-auto">
-      <div className="w-full bg-[#0d1b2e] rounded-t-3xl p-5 space-y-4 border-t border-white/10">
+      <div className="w-full bg-[#0d1b2e] rounded-t-3xl p-5 space-y-4 border-t border-navy-800/15">
         <div className="flex items-center justify-between">
-          <div className="font-bold text-white">Report Conditions</div>
-          <button onClick={onClose}><X size={18} className="text-gray-400" /></button>
+          <div className="font-bold text-navy-800">Report Conditions</div>
+          <button onClick={onClose}><X size={18} className="text-navy-700" /></button>
         </div>
-        <div className="text-xs text-gray-400">{ramp.name} · {ramp.lake}</div>
+        <div className="text-xs text-navy-700">{ramp.name} · {ramp.lake}</div>
         {done ? (
           <div className="text-center py-6">
             <CheckCircle size={40} className="text-green-400 mx-auto mb-2" />
-            <div className="text-white font-semibold">Report submitted!</div>
-            <div className="text-xs text-gray-400 mt-1">Thanks for helping other boaters 🙌</div>
+            <div className="text-navy-800 font-semibold">Report submitted!</div>
+            <div className="text-xs text-navy-700 mt-1">Thanks for helping other boaters 🙌</div>
           </div>
         ) : (
           <>
             <div>
-              <div className="text-xs text-gray-400 mb-2">Current status *</div>
+              <div className="text-xs text-navy-700 mb-2">Current status *</div>
               <div className="grid grid-cols-3 gap-2">
                 {['good','busy','closed'].map(s => (
                   <button key={s} onClick={() => setStatus(s)}
-                    className={`py-2.5 rounded-xl text-xs font-semibold capitalize border transition-all ${status===s?'border-crew-teal bg-crew-teal/10 text-crew-teal':'border-white/10 text-gray-400'}`}>{s}</button>
+                    className={`py-2.5 rounded-xl text-xs font-semibold capitalize border transition-all ${status===s?'border-crew-blue bg-crew-blue/10 text-crew-blue':'border-navy-800/15 text-navy-700'}`}>{s}</button>
                 ))}
               </div>
             </div>
             {status && status !== 'closed' && (
               <div>
-                <div className="text-xs text-gray-400 mb-2">Wait time (minutes)</div>
+                <div className="text-xs text-navy-700 mb-2">Wait time (minutes)</div>
                 <div className="grid grid-cols-4 gap-2">
                   {['0','10','20','30','45','60','90'].map(w => (
                     <button key={w} onClick={() => setWait(w)}
-                      className={`py-2 rounded-xl text-xs font-medium border transition-all ${wait===w?'border-crew-teal bg-crew-teal/10 text-crew-teal':'border-white/10 text-gray-400'}`}>
+                      className={`py-2 rounded-xl text-xs font-medium border transition-all ${wait===w?'border-crew-blue bg-crew-blue/10 text-crew-blue':'border-navy-800/15 text-navy-700'}`}>
                       {w==='0'?'None':`${w}m`}
                     </button>
                   ))}
@@ -128,20 +128,20 @@ function ReportSheet({ ramp, onClose, onSubmitted }) {
             )}
             {status && status !== 'closed' && (
               <div>
-                <div className="text-xs text-gray-400 mb-2">Surface conditions</div>
+                <div className="text-xs text-navy-700 mb-2">Surface conditions</div>
                 <div className="grid grid-cols-3 gap-2">
                   {['Glass','Calm','Slight chop','Choppy','Rough'].map(s => (
                     <button key={s} onClick={() => setSurface(s)}
-                      className={`py-2 rounded-xl text-xs font-medium border transition-all ${surface===s?'border-crew-teal bg-crew-teal/10 text-crew-teal':'border-white/10 text-gray-400'}`}>{s}</button>
+                      className={`py-2 rounded-xl text-xs font-medium border transition-all ${surface===s?'border-crew-blue bg-crew-blue/10 text-crew-blue':'border-navy-800/15 text-navy-700'}`}>{s}</button>
                   ))}
                 </div>
               </div>
             )}
             <div>
-              <div className="text-xs text-gray-400 mb-2">Anything else? (optional)</div>
+              <div className="text-xs text-navy-700 mb-2">Anything else? (optional)</div>
               <textarea value={notes} onChange={e=>setNotes(e.target.value)}
                 placeholder="e.g. one lane closed, debris in water..."
-                className="w-full bg-white/5 border border-white/10 rounded-xl text-xs text-white placeholder-gray-600 p-3 resize-none h-16" />
+                className="w-full bg-white border border-navy-800/10 shadow-sm border border-navy-800/15 rounded-xl text-xs text-navy-800 placeholder-gray-600 p-3 resize-none h-16" />
             </div>
             <button onClick={submit} disabled={!status||submitting}
               className="w-full py-3 rounded-2xl font-semibold text-sm bg-crew-blue text-white disabled:opacity-40 transition-all">
@@ -185,10 +185,10 @@ function RampDetail({ ramp, liveData, userLocation, onBack, onReport }) {
     <>
       {/* Header */}
       <div className="flex items-center gap-3 px-4 py-4">
-        <button onClick={onBack} className="p-2 bg-white/5 rounded-xl"><X size={16} className="text-gray-400" /></button>
+        <button onClick={onBack} className="p-2 bg-white border border-navy-800/10 shadow-sm rounded-xl"><X size={16} className="text-navy-700" /></button>
         <div className="flex-1">
-          <div className="font-bold text-white">{ramp.name}</div>
-          <div className="flex items-center gap-1 text-xs text-gray-500 mt-0.5"><MapPin size={10} />{ramp.lake}</div>
+          <div className="font-bold text-navy-800">{ramp.name}</div>
+          <div className="flex items-center gap-1 text-xs text-navy-700/70 mt-0.5"><MapPin size={10} />{ramp.lake}</div>
         </div>
         <div className="flex flex-col items-end gap-1">
           <div className={`flex items-center gap-1 ${cfg.bg} ${cfg.color} text-xs font-medium px-2.5 py-1 rounded-full`}>
@@ -199,20 +199,20 @@ function RampDetail({ ramp, liveData, userLocation, onBack, onReport }) {
       </div>
 
       {/* Tappable map — opens Google Maps navigation */}
-      <a href={gmapsNav} target="_blank" rel="noreferrer" className="mx-4 block rounded-2xl overflow-hidden border border-white/10 relative" style={{height:'180px'}}>
+      <a href={gmapsNav} target="_blank" rel="noreferrer" className="mx-4 block rounded-2xl overflow-hidden border border-navy-800/15 relative" style={{height:'180px'}}>
         <img
           src={`https://staticmap.openstreetmap.de/staticmap.php?center=${ramp.lat},${ramp.lng}&zoom=15&size=600x300&markers=${ramp.lat},${ramp.lng},red`}
           alt={ramp.name}
           className="w-full h-full object-cover"
           onError={e => { e.target.style.display='none'; e.target.nextSibling.style.display='flex' }}
         />
-        <div style={{display:'none'}} className="w-full h-full bg-white/5 items-center justify-center flex-col gap-2">
-          <MapPin size={28} className="text-crew-teal" />
-          <span className="text-xs text-gray-400">Tap to open in Maps</span>
+        <div style={{display:'none'}} className="w-full h-full bg-white border border-navy-800/10 shadow-sm items-center justify-center flex-col gap-2">
+          <MapPin size={28} className="text-crew-blue" />
+          <span className="text-xs text-navy-700">Tap to open in Maps</span>
         </div>
         <div className="absolute bottom-2 right-2 bg-black/60 backdrop-blur-sm rounded-xl px-3 py-1.5 flex items-center gap-1.5">
-          <Navigation size={12} className="text-crew-teal" />
-          <span className="text-xs text-white font-medium">Open in Maps</span>
+          <Navigation size={12} className="text-crew-blue" />
+          <span className="text-xs text-navy-800 font-medium">Open in Maps</span>
         </div>
       </a>
 
@@ -223,22 +223,22 @@ function RampDetail({ ramp, liveData, userLocation, onBack, onReport }) {
           <Navigation size={16} /> Get Directions
         </a>
         <button onClick={onReport}
-          className="flex-1 flex items-center justify-center gap-2 bg-white/10 text-white rounded-2xl py-3 text-sm font-semibold">
+          className="flex-1 flex items-center justify-center gap-2 bg-white border border-navy-800/10 shadow-sm text-navy-800 rounded-2xl py-3 text-sm font-semibold">
           <Flag size={16} /> Report
         </button>
       </div>
 
       {/* Drive time banner */}
       {driveText && (
-        <div className="mx-4 mt-3 bg-white/5 rounded-xl px-4 py-2.5 flex items-center gap-2">
-          <Car size={14} className="text-crew-teal shrink-0" />
-          <span className="text-xs text-gray-300"><span className="text-white font-semibold">{driveText}</span> from your location</span>
+        <div className="mx-4 mt-3 bg-white border border-navy-800/10 shadow-sm rounded-xl px-4 py-2.5 flex items-center gap-2">
+          <Car size={14} className="text-crew-blue shrink-0" />
+          <span className="text-xs text-navy-700"><span className="text-navy-800 font-semibold">{driveText}</span> from your location</span>
         </div>
       )}
 
       {/* Reports badge */}
       {live && (
-        <div className="mx-4 mt-2 bg-crew-teal/10 border border-crew-teal/20 rounded-xl px-4 py-2 text-xs text-crew-teal">
+        <div className="mx-4 mt-2 bg-crew-blue/10 border border-crew-blue/20 rounded-xl px-4 py-2 text-xs text-crew-blue">
           {live.report_count} boater report{live.report_count>1?'s':''} in the last 2 hrs · Updated {timeAgo(live.updated)}
         </div>
       )}
@@ -246,67 +246,67 @@ function RampDetail({ ramp, liveData, userLocation, onBack, onReport }) {
       {/* Wait + Surface */}
       {status !== 'closed' && (
         <div className="px-4 mt-3 grid grid-cols-2 gap-2">
-          <div className="bg-white/5 rounded-xl p-3 text-center">
-            <div className="text-xs text-gray-500">Wait</div>
-            <div className="text-lg font-bold text-white mt-0.5">{wait}</div>
+          <div className="bg-white border border-navy-800/10 shadow-sm rounded-xl p-3 text-center">
+            <div className="text-xs text-navy-700/70">Wait</div>
+            <div className="text-lg font-bold text-navy-800 mt-0.5">{wait}</div>
           </div>
-          <div className="bg-white/5 rounded-xl p-3 text-center">
-            <div className="text-xs text-gray-500">Surface</div>
-            <div className="text-lg font-bold text-white mt-0.5">{surface || '—'}</div>
+          <div className="bg-white border border-navy-800/10 shadow-sm rounded-xl p-3 text-center">
+            <div className="text-xs text-navy-700/70">Surface</div>
+            <div className="text-lg font-bold text-navy-800 mt-0.5">{surface || '—'}</div>
           </div>
         </div>
       )}
 
       {/* Live Weather */}
       <div className="px-4 mt-3">
-        <div className="text-xs text-gray-500 mb-2 flex items-center gap-1">
+        <div className="text-xs text-navy-700/70 mb-2 flex items-center gap-1">
           <span>🌤 Live Weather</span>
           <span className="text-gray-700">· Open-Meteo</span>
         </div>
         {wxLoading ? (
-          <div className="bg-white/5 rounded-xl p-4 text-xs text-gray-500 text-center">Loading weather...</div>
+          <div className="bg-white border border-navy-800/10 shadow-sm rounded-xl p-4 text-xs text-navy-700/70 text-center">Loading weather...</div>
         ) : weather ? (
           <div className="grid grid-cols-2 gap-2">
-            <div className="bg-white/5 rounded-xl p-3 flex items-center gap-2">
+            <div className="bg-white border border-navy-800/10 shadow-sm rounded-xl p-3 flex items-center gap-2">
               <Thermometer size={16} className="text-orange-400 shrink-0" />
               <div>
-                <div className="text-xs text-gray-500">Temp</div>
-                <div className="text-sm font-semibold text-white">{Math.round(weather.temperature_2m)}°F</div>
+                <div className="text-xs text-navy-700/70">Temp</div>
+                <div className="text-sm font-semibold text-navy-800">{Math.round(weather.temperature_2m)}°F</div>
               </div>
             </div>
-            <div className="bg-white/5 rounded-xl p-3 flex items-center gap-2">
+            <div className="bg-white border border-navy-800/10 shadow-sm rounded-xl p-3 flex items-center gap-2">
               <Wind size={16} className="text-blue-400 shrink-0" />
               <div>
-                <div className="text-xs text-gray-500">Wind</div>
-                <div className="text-sm font-semibold text-white">{Math.round(weather.wind_speed_10m)} mph {windDir(weather.wind_direction_10m)}</div>
+                <div className="text-xs text-navy-700/70">Wind</div>
+                <div className="text-sm font-semibold text-navy-800">{Math.round(weather.wind_speed_10m)} mph {windDir(weather.wind_direction_10m)}</div>
               </div>
             </div>
-            <div className="bg-white/5 rounded-xl p-3 flex items-center gap-2">
+            <div className="bg-white border border-navy-800/10 shadow-sm rounded-xl p-3 flex items-center gap-2">
               <CloudRain size={16} className="text-teal-400 shrink-0" />
               <div>
-                <div className="text-xs text-gray-500">Rain</div>
-                <div className="text-sm font-semibold text-white">{weather.precipitation} mm</div>
+                <div className="text-xs text-navy-700/70">Rain</div>
+                <div className="text-sm font-semibold text-navy-800">{weather.precipitation} mm</div>
               </div>
             </div>
-            <div className="bg-white/5 rounded-xl p-3 flex items-center gap-2">
-              <Waves size={16} className="text-crew-teal shrink-0" />
+            <div className="bg-white border border-navy-800/10 shadow-sm rounded-xl p-3 flex items-center gap-2">
+              <Waves size={16} className="text-crew-blue shrink-0" />
               <div>
-                <div className="text-xs text-gray-500">Conditions</div>
-                <div className="text-sm font-semibold text-white">{weatherDesc(weather.weather_code)}</div>
+                <div className="text-xs text-navy-700/70">Conditions</div>
+                <div className="text-sm font-semibold text-navy-800">{weatherDesc(weather.weather_code)}</div>
               </div>
             </div>
           </div>
         ) : (
-          <div className="bg-white/5 rounded-xl p-3 text-xs text-gray-500">Weather unavailable</div>
+          <div className="bg-white border border-navy-800/10 shadow-sm rounded-xl p-3 text-xs text-navy-700/70">Weather unavailable</div>
         )}
       </div>
 
       {/* Notes */}
       <div className="px-4 mt-3 mb-6">
-        <div className="bg-white/5 rounded-xl px-4 py-3">
-          <p className="text-xs text-gray-400">{ramp.notes}</p>
+        <div className="bg-white border border-navy-800/10 shadow-sm rounded-xl px-4 py-3">
+          <p className="text-xs text-navy-700">{ramp.notes}</p>
         </div>
-        {!live && <div className="text-xs text-gray-600 px-1 mt-2">No live reports yet — be the first to report!</div>}
+        {!live && <div className="text-xs text-navy-700/60 px-1 mt-2">No live reports yet — be the first to report!</div>}
       </div>
     </>
   )
@@ -386,13 +386,13 @@ export default function RampConditions() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-xl font-bold text-white">Boat Ramps</h1>
-          <p className="text-gray-400 text-xs mt-0.5">
+          <h1 className="text-xl font-bold text-navy-800">Boat Ramps</h1>
+          <p className="text-navy-700 text-xs mt-0.5">
             {loading ? 'Loading live reports...' : userLocation ? '📍 Drive times from your location' : 'Tap a ramp for map & conditions'}
           </p>
         </div>
-        <button onClick={() => { fetchLive(); fetchAllWeather() }} className="p-2 bg-white/5 rounded-xl">
-          <RefreshCw size={16} className={`text-gray-400 ${loading?'animate-spin':''}`} />
+        <button onClick={() => { fetchLive(); fetchAllWeather() }} className="p-2 bg-white border border-navy-800/10 shadow-sm rounded-xl">
+          <RefreshCw size={16} className={`text-navy-700 ${loading?'animate-spin':''}`} />
         </button>
       </div>
 
@@ -400,7 +400,7 @@ export default function RampConditions() {
       <div className="flex gap-2">
         {['all','good','busy','closed'].map(f => (
           <button key={f} onClick={() => setFilter(f)}
-            className={`px-3 py-1.5 rounded-xl text-xs font-medium capitalize transition-all ${filter===f?'bg-crew-blue text-white':'bg-white/5 text-gray-400'}`}>
+            className={`px-3 py-1.5 rounded-xl text-xs font-medium capitalize transition-all ${filter===f?'bg-crew-blue text-white':'bg-white border border-navy-800/10 shadow-sm text-navy-700'}`}>
             {f}
           </button>
         ))}
@@ -420,14 +420,14 @@ export default function RampConditions() {
 
           return (
             <button key={ramp.id} onClick={() => setSelected(ramp.id)}
-              className="w-full text-left bg-white/5 rounded-2xl p-4 space-y-3 active:scale-[0.98] transition-transform">
+              className="w-full text-left bg-white border border-navy-800/10 shadow-sm rounded-2xl p-4 space-y-3 active:scale-[0.98] transition-transform">
               {/* Top row */}
               <div className="flex items-start justify-between">
                 <div>
-                  <div className="font-semibold text-white text-sm">{ramp.name}</div>
+                  <div className="font-semibold text-navy-800 text-sm">{ramp.name}</div>
                   <div className="flex items-center gap-2 mt-0.5">
-                    <div className="flex items-center gap-1 text-xs text-gray-500"><MapPin size={10} />{ramp.lake}</div>
-                    {drive && <div className="flex items-center gap-1 text-xs text-crew-teal"><Car size={10} />{drive}</div>}
+                    <div className="flex items-center gap-1 text-xs text-navy-700/70"><MapPin size={10} />{ramp.lake}</div>
+                    {drive && <div className="flex items-center gap-1 text-xs text-crew-blue"><Car size={10} />{drive}</div>}
                   </div>
                 </div>
                 <div className="flex flex-col items-end gap-1 shrink-0">
@@ -441,25 +441,25 @@ export default function RampConditions() {
               {/* Stats row */}
               {status !== 'closed' && (
                 <div className="grid grid-cols-3 gap-2">
-                  <div className="bg-white/5 rounded-xl p-2 text-center">
-                    <div className="text-xs text-gray-500">Wait</div>
-                    <div className="text-sm font-semibold text-white mt-0.5">{wait}</div>
+                  <div className="bg-white border border-navy-800/10 shadow-sm rounded-xl p-2 text-center">
+                    <div className="text-xs text-navy-700/70">Wait</div>
+                    <div className="text-sm font-semibold text-navy-800 mt-0.5">{wait}</div>
                   </div>
-                  <div className="bg-white/5 rounded-xl p-2 text-center">
-                    <div className="text-xs text-gray-500">Temp</div>
-                    <div className="text-sm font-semibold text-white mt-0.5">{wx ? `${Math.round(wx.temperature_2m)}°F` : '—'}</div>
+                  <div className="bg-white border border-navy-800/10 shadow-sm rounded-xl p-2 text-center">
+                    <div className="text-xs text-navy-700/70">Temp</div>
+                    <div className="text-sm font-semibold text-navy-800 mt-0.5">{wx ? `${Math.round(wx.temperature_2m)}°F` : '—'}</div>
                   </div>
-                  <div className="bg-white/5 rounded-xl p-2 text-center">
-                    <div className="text-xs text-gray-500">Wind</div>
-                    <div className="text-sm font-semibold text-white mt-0.5">{wx ? `${Math.round(wx.wind_speed_10m)} mph` : '—'}</div>
+                  <div className="bg-white border border-navy-800/10 shadow-sm rounded-xl p-2 text-center">
+                    <div className="text-xs text-navy-700/70">Wind</div>
+                    <div className="text-sm font-semibold text-navy-800 mt-0.5">{wx ? `${Math.round(wx.wind_speed_10m)} mph` : '—'}</div>
                   </div>
                 </div>
               )}
 
               {/* Footer */}
               <div className="flex items-center justify-between">
-                <p className="text-xs text-gray-400 flex-1 pr-2 line-clamp-1">{live?.notes || (status === 'unknown' ? 'No reports yet.' : '')}</p>
-                <div className="flex items-center gap-1 text-xs text-crew-teal shrink-0">
+                <p className="text-xs text-navy-700 flex-1 pr-2 line-clamp-1">{live?.notes || (status === 'unknown' ? 'No reports yet.' : '')}</p>
+                <div className="flex items-center gap-1 text-xs text-crew-blue shrink-0">
                   {live ? `${live.report_count} report${live.report_count>1?'s':''}` : 'No reports'}
                   <ChevronRight size={12} />
                 </div>

@@ -30,14 +30,14 @@ export default function RampMap() {
       <div className="flex gap-2 px-4 py-3">
         {['all', 'good', 'busy', 'closed'].map(f => (
           <button key={f} onClick={() => setFilter(f)}
-            className={`px-3 py-1.5 rounded-xl text-xs font-medium capitalize transition-all ${filter === f ? 'bg-crew-blue text-white' : 'bg-white/5 text-gray-400'}`}>
+            className={`px-3 py-1.5 rounded-xl text-xs font-medium capitalize transition-all ${filter === f ? 'bg-crew-blue text-white' : 'bg-white border border-navy-800/10 shadow-sm text-navy-700'}`}>
             {f}
           </button>
         ))}
       </div>
 
       {/* Map */}
-      <div className="flex-1 relative mx-4 rounded-2xl overflow-hidden border border-white/10">
+      <div className="flex-1 relative mx-4 rounded-2xl overflow-hidden border border-navy-800/15">
         <iframe
           title="Ramp Map"
           width="100%"
@@ -72,17 +72,17 @@ export default function RampMap() {
       {/* Ramp list / bottom card */}
       <div className="px-4 py-3 space-y-2 max-h-48 overflow-y-auto">
         {selected && selectedRamp ? (
-          <div className="bg-white/10 rounded-2xl p-4 space-y-3">
+          <div className="bg-white border border-navy-800/10 shadow-sm rounded-2xl p-4 space-y-3">
             <div className="flex items-start justify-between">
               <div>
-                <div className="font-semibold text-white">{selectedRamp.name}</div>
-                <div className="text-xs text-gray-400">{selectedRamp.lake}</div>
+                <div className="font-semibold text-navy-800">{selectedRamp.name}</div>
+                <div className="text-xs text-navy-700">{selectedRamp.lake}</div>
               </div>
-              <button onClick={() => setSelected(null)}><X size={16} className="text-gray-400" /></button>
+              <button onClick={() => setSelected(null)}><X size={16} className="text-navy-700" /></button>
             </div>
             <div className="flex items-center gap-3">
               <span className={`text-xs px-2 py-0.5 rounded-full font-medium ${statusBg[selectedRamp.status]}`}>{statusLabel[selectedRamp.status]}</span>
-              {selectedRamp.status !== 'closed' && <span className="text-xs text-gray-400">{selectedRamp.wait} wait</span>}
+              {selectedRamp.status !== 'closed' && <span className="text-xs text-navy-700">{selectedRamp.wait} wait</span>}
             </div>
             <a href={selectedRamp.gmaps} target="_blank" rel="noreferrer"
               className="flex items-center justify-center gap-2 bg-crew-blue text-white rounded-xl py-2.5 text-sm font-semibold w-full">
@@ -92,12 +92,12 @@ export default function RampMap() {
         ) : (
           filtered.map(r => (
             <button key={r.id} onClick={() => setSelected(r.id)}
-              className="w-full flex items-center justify-between bg-white/5 rounded-xl px-4 py-2.5">
+              className="w-full flex items-center justify-between bg-white border border-navy-800/10 shadow-sm rounded-xl px-4 py-2.5">
               <div className="flex items-center gap-2">
                 <div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: statusColor[r.status] }} />
-                <span className="text-sm text-white font-medium">{r.name}</span>
+                <span className="text-sm text-navy-800 font-medium">{r.name}</span>
               </div>
-              <span className="text-xs text-gray-500">{r.lake}</span>
+              <span className="text-xs text-navy-700/70">{r.lake}</span>
             </button>
           ))
         )}

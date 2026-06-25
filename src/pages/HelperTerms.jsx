@@ -9,18 +9,18 @@ export default function HelperTerms() {
     <div className="px-4 py-6 pb-24 space-y-5">
       {/* Header */}
       <div className="flex items-center gap-3">
-        <button onClick={() => navigate(-1)} className="p-2 bg-white/5 rounded-xl">
-          <ArrowLeft size={16} className="text-gray-400" />
+        <button onClick={() => navigate(-1)} className="p-2 bg-white border border-navy-800/10 shadow-sm rounded-xl">
+          <ArrowLeft size={16} className="text-navy-700" />
         </button>
         <div>
-          <h1 className="text-lg font-bold text-white">Helper Terms of Service</h1>
-          <p className="text-xs text-gray-500">Effective June 1, 2026</p>
+          <h1 className="text-lg font-bold text-navy-800">Helper Terms of Service</h1>
+          <p className="text-xs text-navy-700/70">Effective June 1, 2026</p>
         </div>
       </div>
 
       <div className="bg-blue-500/10 border border-blue-500/20 rounded-2xl p-3 flex items-center gap-3">
         <Shield size={16} className="text-blue-400 shrink-0" />
-        <p className="text-xs text-gray-300">Please read these terms carefully before submitting your helper application.</p>
+        <p className="text-xs text-navy-700">Please read these terms carefully before submitting your helper application.</p>
       </div>
 
       {[
@@ -70,12 +70,12 @@ export default function HelperTerms() {
         },
       ].map(({ title, body }) => (
         <div key={title} className="space-y-1.5">
-          <div className="text-sm font-semibold text-white">{title}</div>
-          <p className="text-xs text-gray-400 leading-relaxed">{body}</p>
+          <div className="text-sm font-semibold text-navy-800">{title}</div>
+          <p className="text-xs text-navy-700 leading-relaxed">{body}</p>
         </div>
       ))}
 
-      <div className="text-xs text-gray-600 pt-4 border-t border-white/5">
+      <div className="text-xs text-navy-700/60 pt-4 border-t border-navy-800/10">
         © 2026 RampCrew. All rights reserved. North Idaho, USA.
       </div>
     </div>
