@@ -8,7 +8,7 @@ Last updated: June 2026
 PLEASE READ THIS ENTIRE AGREEMENT CAREFULLY BEFORE PROCEEDING. BY TAPPING "I AGREE," YOU ACKNOWLEDGE THAT YOU HAVE READ, UNDERSTOOD, AND VOLUNTARILY AGREE TO BE BOUND BY ALL TERMS BELOW.
 
 1. PARTIES
-"RampCrew" refers to RampCrew LLC, its owners, officers, employees, independent contractors, volunteers, helpers, agents, and assigns. "You" or "User" refers to the person requesting helper services and/or booking a ramp slot through the RampCrew platform.
+"RampCrew" refers to RampCrew, its owners, officers, employees, independent contractors, volunteers, helpers, agents, and assigns. "You" or "User" refers to the person requesting helper services and/or booking a ramp slot through the RampCrew platform.
 
 2. NATURE OF SERVICES
 RampCrew helpers provide dock assistance, launch guidance, coordination support, and load/unload spotting only. Helpers do not:

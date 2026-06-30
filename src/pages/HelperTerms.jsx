@@ -49,23 +49,23 @@ export default function HelperTerms() {
           body: `RampCrew is not liable for any injury, property damage, or loss that occurs during the performance of your services. You are strongly encouraged to carry personal liability insurance. By accepting a booking, you assume responsibility for the safe handling of the customer's property.`,
         },
         {
-          title: '8. Cancellations',
+          title: '7. Cancellations',
           body: `Repeated cancellations or no-shows may result in your listing being suspended or removed. If you need to cancel a confirmed booking, you must do so at least 2 hours in advance through the RampCrew platform and notify the customer promptly.`,
         },
         {
-          title: '9. Termination',
+          title: '8. Termination',
           body: `RampCrew reserves the right to suspend or remove any helper from the platform at any time, with or without cause, including but not limited to: failed background check, customer complaints, policy violations, or inactivity for more than 90 days.`,
         },
         {
-          title: '10. Privacy',
-          body: `Your personal information is collected solely for the purpose of operating the RampCrew platform. We do not sell your data to third parties. Your ID documents are deleted after verification is complete. For full details, see our Privacy Policy.`,
+          title: '9. Privacy',
+          body: `Your personal information is collected solely for the purpose of operating the RampCrew platform. We do not sell your data to third parties. Your ID documents are deleted after verification is complete.`,
         },
         {
-          title: '11. Amendments',
+          title: '10. Amendments',
           body: `RampCrew may update these terms at any time. Continued use of the platform after changes are posted constitutes acceptance of the updated terms. We will notify active helpers of material changes via email.`,
         },
         {
-          title: '12. Contact',
+          title: '11. Contact',
           body: `For questions about these terms, reach us through the Contact page.`,
         },
       ].map(({ title, body }) => (
